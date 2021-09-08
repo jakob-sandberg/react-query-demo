@@ -3,16 +3,12 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useForm } from "react-hook-form";
 
-const BookForm = () => {
+const BookForm = ({ onFormSubmit, defaultValues, isLoading }) => {
 	const {
 		handleSubmit,
 		register,
 		formState: { errors },
-	} = useForm();
-
-	const onFormSubmit = (data) => {
-		console.log("Got some data", data);
-	};
+	} = useForm({ defaultValues });
 
 	return (
 		<Form onSubmit={handleSubmit(onFormSubmit)}>
@@ -20,7 +16,6 @@ const BookForm = () => {
 				<Form.Label>Title</Form.Label>
 				<Form.Control
 					type="text"
-					defaultValue="bananna"
 					{...register("title")}
 					placeholder="Enter book title"
 				/>
@@ -31,7 +26,6 @@ const BookForm = () => {
 				<Form.Label>Author</Form.Label>
 				<Form.Control
 					type="text"
-					defaultValue="John"
 					{...register("author")}
 					placeholder="Enter author"
 				/>
@@ -41,7 +35,6 @@ const BookForm = () => {
 				<Form.Label>Published</Form.Label>
 				<Form.Control
 					type="text"
-					defaultValue="1999"
 					{...register("published")}
 					placeholder="Enter year the book was published"
 				/>
@@ -51,13 +44,12 @@ const BookForm = () => {
 				<Form.Control
 					type="number"
 					min="0"
-					defaultValue="123"
 					{...register("pages")}
 					placeholder="Enter the amount of pages the book contains"
 				/>
 			</Form.Group>
-			<Button variant="success" type="submit">
-				Submit
+			<Button variant="success" type="submit" disabled={isLoading}>
+				{isLoading ? "Submitting..." : "Submit"}
 			</Button>
 		</Form>
 	);

@@ -15,6 +15,12 @@ const get = async (endpoint) => {
 	return response.data;
 };
 
+const post = async (endpoint, data) => {
+	const response = await axios.post(endpoint, data);
+
+	return response.data;
+};
+
 // Get all books
 export const getBooks = async () => {
 	return await get(`/books`);
@@ -23,4 +29,8 @@ export const getBooks = async () => {
 // Get a single book with id
 export const getBook = async (id) => {
 	return await get(`/books/${id}`);
+};
+
+export const createBook = async (data) => {
+	return await post(`/books`, data);
 };
