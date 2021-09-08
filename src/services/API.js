@@ -22,5 +22,5 @@ export const getBooks = async () => {
 
 // Get a single book with a id
 export const getBook = async (id) => {
-	return await get(`/books(${id})`);
+	return await get(`/books/${id}`);
 };

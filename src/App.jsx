@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import Navigation from "./pages/partials/Navigation";
 import PageNotFound from "./pages/PageNotFound";
 import BooksPage from "./pages/BooksPage";
+import BookPage from "./pages/BookPage";
 
 function App() {
 	return (
@@ -18,9 +19,15 @@ function App() {
 					<Route exact path="/">
 						<HomePage />
 					</Route>
+
+					<Route path="/books/:id">
+						<BookPage />
+					</Route>
+
 					<Route path="/books">
 						<BooksPage />
 					</Route>
+
 					<Route>
 						<PageNotFound />
 					</Route>
