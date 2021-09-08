@@ -16,16 +16,11 @@ const get = async (endpoint) => {
 };
 
 // Get all books
-const getBooks = async () => {
+export const getBooks = async () => {
 	return await get(`/books`);
 };
 
 // Get a single book with a id
-const getBook = async (id) => {
+export const getBook = async (id) => {
 	return await get(`/books(${id})`);
-};
-
-export default {
-	getBooks,
-	getBook,
 };

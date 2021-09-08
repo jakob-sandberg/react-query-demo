@@ -13,12 +13,18 @@ const Navigation = () => {
 					<span role="img" aria-label="A person holding up a hand">
 						🙋🏽
 					</span>{" "}
-					Books
+					Library
 				</Link>
 
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
-					<Nav className="ms-auto"></Nav>
+					<Nav className="ms-auto">
+						<NavLink to="/books" className="nav-link">
+							<span role="img" aria-label="A pile of books">
+								Books
+							</span>
+						</NavLink>
+					</Nav>
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>
