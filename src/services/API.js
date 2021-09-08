@@ -20,7 +20,7 @@ export const getBooks = async () => {
 	return await get(`/books`);
 };
 
-// Get a single book with a id
+// Get a single book with id
 export const getBook = async (id) => {
 	return await get(`/books/${id}`);
 };

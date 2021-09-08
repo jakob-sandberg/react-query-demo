@@ -6,6 +6,7 @@ import Navigation from "./pages/partials/Navigation";
 import PageNotFound from "./pages/PageNotFound";
 import BooksPage from "./pages/BooksPage";
 import BookPage from "./pages/BookPage";
+import CreateBookPage from "./pages/CreateBookPage";
 
 function App() {
 	return (
@@ -18,6 +19,10 @@ function App() {
 				<Switch>
 					<Route exact path="/">
 						<HomePage />
+					</Route>
+
+					<Route path="/books/create">
+						<CreateBookPage />
 					</Route>
 
 					<Route path="/books/:id">

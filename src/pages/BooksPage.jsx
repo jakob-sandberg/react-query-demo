@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import { useQuery } from "react-query";
 import BooksList from "../components/BooksList";
 import { getBooks } from "../services/API";
+import { Link } from "react-router-dom";
 
 const BooksPage = () => {
 	const { data, error, isError, isLoading } = useQuery(["books"], () => {
@@ -21,6 +22,15 @@ const BooksPage = () => {
 					<strong>Error: </strong> {error.message}
 				</Alert>
 			)}
+
+			<div className="d-flex justify-content-end">
+				<Link
+					to="/books/create"
+					className="btn btn-success btn-sm mb-2"
+				>
+					Create new book
+				</Link>
+			</div>
 
 			{data && <BooksList books={data} />}
 		</Container>
